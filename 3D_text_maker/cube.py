@@ -44,6 +44,15 @@ class cube():
         
         self.center = ( x, y, z)
 
+
+    def move(self, move_vector):
+        self.center = cong_vector(self.center , move_vector)
+        for chop in self.chops:
+            chop.real_coordinates = cong_vector(chop.real_coordinates, move_vector)
+        
+        for mp in self.mp:
+            mp.update()
+
     def display(self):
 
         for chop in self.chops:

@@ -13,7 +13,7 @@ class mat_phang():
         self.main = main
         self.chops = [P1,P2,P3,P4]
         self.color = color
-        self.isupdate = True
+        self.isget_pos = True
         x = y = z = 0
         for chop in self.chops:
             x += chop.real_coordinates[0]
@@ -27,13 +27,26 @@ class mat_phang():
         self.center = (x,y,z)
 
     def update(self):
-        if self.isupdate :
+        x = y = z = 0
+        for chop in self.chops:
+            x += chop.real_coordinates[0]
+            y += chop.real_coordinates[1]
+            z += chop.real_coordinates[2]
+
+        x = int(x / 4.0)
+        y = int(y / 4.0)
+        z = int(z / 4.0)
+
+        self.center = (x,y,z)
+
+    def get_pos(self):
+        if self.isget_pos :
             for chop in self.chops:
                 chop.get_display_coordinates()
 
 
     def display(self):
-        self.update()
+        self.get_pos()
         
         in_sight_chops = []
         out_sight_chops = []
