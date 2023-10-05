@@ -41,7 +41,7 @@ pygame.init()
 class main():
     def __init__(self):
         self.surf = pygame.display.set_mode((1000.0,1000.0))
-        pygame.display.set_caption('suiiiiii')
+        pygame.display.set_caption('3D TEXT GENERATER')
 
         ui_loop(self)
 
